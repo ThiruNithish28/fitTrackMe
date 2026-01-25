@@ -8,5 +8,12 @@
 
 :root{
     --green-clr:rgb(66, 153, 112);
-    
+    --gray-clr:rgb(132, 128, 128);
+    --bg-gray-clr:rgb(205, 204, 204);
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.6rem;
 }

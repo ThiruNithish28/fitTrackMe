@@ -28,11 +28,18 @@ export class DailyLog {
   snacks: string = 'Snacks'; 
   dinner: string = 'Dinner';
 
-  
+  totalCaloriesToday: number = 0;
   foodDetails: FoodDetails = {
     snacks: { list: [], calories: 0 },
-    breakfast: { list: [{ name: 'Oatmeal with Berries', calories: 200, protien: 8, carbs: 32, fat: 4 },], calories: 0 },
+    breakfast: { list: [{ name: 'Oatmeal with Berries', calories: 200, protien: 8, carbs: 32, fat: 4 },], calories: 200 },
     dinner: { list: [], calories: 0 },
     lunch: { list: [], calories: 0 }
   };
+  ngOnInit() {
+    this.calculateTotalCalories();
+  }
+
+  calculateTotalCalories() {
+    this.totalCaloriesToday = Object.values(this.foodDetails).reduce((total, meal) => total + meal.calories, 0);
+  }
 }

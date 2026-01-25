@@ -28,7 +28,7 @@
 <div class="search-suggestion">
     <div class="title">Search Results</div>
   <div class="suggestion">
-    @for(item of searchResult){
+    @for(item of searchResult; track item.id){
         <div>
             <div class="item-name">{{item.name}}</div>
             <div class="action"> > </div>

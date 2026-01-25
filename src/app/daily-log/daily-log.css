@@ -1,3 +1,24 @@
-.log{
+.container{
     padding: 10px 15px;
+    background-color: #ffffff;
+    border: 1px solid var(--bg-gray-clr);
+    border-radius:12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 15px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+.totalCalorie-count {
+    font-size:1.5rem;
+    font-weight: 700;
+    padding: .5rem 1rem;
+    color: var(--gray-clr);
+    background-color: var(--bg-gray-clr);
+    border-radius: 12px;
 }

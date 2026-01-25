@@ -56,7 +56,7 @@
 @media(width > 420px){
     .meal-content{
         border-left:1px solid black ;
-        height: 200px;
+        /* height: 200px; */
     }
 
     .food-card{

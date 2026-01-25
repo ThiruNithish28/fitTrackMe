@@ -8,7 +8,8 @@ import { DailyLog } from './daily-log/daily-log';
 
 @Component({
   selector: 'app-root',
-  imports: [ Header, IntroPage,DailySummary,DailyLog,CommonModule],
+  // imports: [ Header, IntroPage,DailySummary,DailyLog,CommonModule],
+  imports: [ DailySummary,DailyLog,CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
