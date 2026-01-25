@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="header">
+        <div>Today meals</div>
+        <div> 
+            <!-- add total calories eaten today -->
+        </div>
+    </div>
+
+    <div class="log">
+        <div class="breakfast-container">
+           <app-meal-box title="breakfast" [mealList]="foodDetails.breakfast.list" [totalCalorie]="foodDetails.breakfast.calories"></app-meal-box>
+        </div>
+        
+        <div class="lunch-container">
+          <app-meal-box title="lunch" [mealList]="foodDetails.lunch.list" [totalCalorie]="foodDetails.lunch.calories"></app-meal-box>
+        </div>
+
+        <div class="snacks-container">
+            <app-meal-box title="snacks" [mealList]="foodDetails.snacks.list" [totalCalorie]="foodDetails.snacks.calories"></app-meal-box>
+        </div>
+
+        <div class="dinner-container">
+           <app-meal-box title="dinner" [mealList]="foodDetails.dinner.list" [totalCalorie]="foodDetails.dinner.calories"></app-meal-box>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="parent-container">
+  
+  <!-- PAGE 1: INTRO -->
+  @if(isIntroPage) {
+    <section class="onboard-intro fade-in">
+      <!-- Your existing SVG/Icon -->
+      <div class="icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#7b61ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+        </svg>
+      </div>
+      
+      <div class="text-content">
+        <div class="big-content">Track your <span class="highlight-text">Nutrition</span></div>
+        <div class="sub-content">Transform your Health</div>
+      </div>
+
+      <button class="action_btn primary" (click)="onNext('intro')">Get started</button>
+    </section>
+  } 
+  
+  <!-- PAGE 2: AGE (THE WHEEL PICKER) -->
+  @else if(isAgeEnterPage) {
+    <section class="picker-section fade-in">
+      <div class="header">
+        <div class="step-count">1 / 4</div>
+        <div class="bold_content">What's your age?</div>
+        <p class="subtitle">This helps us calculate your calorie needs.</p>
+      </div>
+
+      <div class="picker-container">
+        <!-- The Purple Highlight Box (Static Background) -->
+        <div class="highlight-box"></div>
+
+        <!-- The Scrolling List -->
+        <div class="wheel" #wheel>
+          <div class="spacer"></div>
+          
+          <div 
+            *ngFor="let age of ages" 
+            class="age-item" 
+            [class.active]="age === selectedAge"
+            [attr.data-age]="age"
+            #ageItem
+            (click)="scrollTo(age)"
+          >
+            {{ age }}
+          </div>
+          
+          <div class="spacer"></div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <button class="action_btn primary" (click)="onNext('age')">Continue</button>
+      </div>
+    </section>
+  }
+
+  <!-- PAGE 3: WEIGHT -->
+  @else if(isWeightEnterPage) {
+    <section class="fade-in">
+      <div class="step-count">2 / 4</div>
+      <div class="bold_content">Your Current weight?</div>
+      <p class="subtitle">This helps us calculate your calorie needs.</p>
+      
+      <!-- Simple List for Weight (or reuse wheel logic here later) -->
+      <div class="list-input-container weight-selection-container">
+        @for (weight of weightNumbers; track weight){
+          <div class="simple-list-item">{{ weight }}</div>
+        }
+      </div>
+      
+      <div class="footer">
+        <button class="action_btn primary" (click)="onNext('weight')">Next</button>
+      </div>
+    </section>
+  }
+
+  <!-- PAGE 4: GENDER -->
+  @else if(isGenderEnterPage) {
+    <section class="fade-in">
+      <div class="step-count">3 / 4</div>
+      <div class="bold_content">What's your gender?</div>
+      
+      <div class="card-grid">
+        @for (gender of genderList; track gender){
+          <label class="input_selection_card">
+            <input type="radio" name="gender" [value]="gender" />
+            <div class="card-content">
+              <span>{{ gender }}</span>
+            </div>
+          </label>
+        }
+      </div>
+
+      <div class="footer">
+        <button class="action_btn primary" (click)="onNext('gender')">Next</button>
+      </div>
+    </section>
+  }
+
+  <!-- PAGE 5: GOAL -->
+  @else if(isGoalEnterPage){
+    <section class="fade-in">
+      <div class="step-count">4 / 4</div>
+      <div class="bold_content">What is your goal?</div>
+      
+      <div class="card-grid">
+        @for(g of goals; track g.key){
+          <label class="input_selection_card goal_box">
+            <input type="radio" name="goal" [value]="g.key" />
+            <div class="card-content">
+              <span>{{ g.name }}</span>
+            </div>
+          </label>
+        }
+      </div>
+
+      <div class="footer">
+        <button class="action_btn primary" (click)="onNext('goal')">Finish</button>
+      </div>
+    </section>
+  }
+
+
+</div>

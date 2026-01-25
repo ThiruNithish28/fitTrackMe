@@ -1,0 +1,66 @@
+.meal-header,
+.meal-header div,
+.nutrition-container,
+.food-card .count-details{
+    display: flex;
+    align-items: center;
+}
+
+.meal-header {
+    justify-content: space-between;
+}
+.meal-header .title{
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 8px 0;
+}
+.meal-header .totalCalorie{
+    color: rgb(139, 136, 136);
+}
+.addbtn{
+    padding: 3px;
+    border: none;
+    border-radius:50% ;
+    color: rgb(132, 128, 128);
+    background-color: rgb(205, 204, 204);
+    margin: 0 8px;
+    
+}
+.food-card{
+    width: 100%;
+    max-width: 390px;
+    padding: 10px;
+    border: 1px solid rgb(218, 215, 215);
+    border-radius: 12px;
+}
+.food-card .count-details{
+    gap:10px
+}
+
+.food-card .count-details .calories::after{
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(120, 118, 118);
+    margin-left:10px;
+    border-radius: 50%;
+}
+
+.nutrition-container{
+    gap:9px;
+    color: gray;
+}
+
+
+@media(width > 420px){
+    .meal-content{
+        border-left:1px solid black ;
+        height: 200px;
+    }
+
+    .food-card{
+        max-width: 400px;
+        margin-left: 20px;
+    }
+}

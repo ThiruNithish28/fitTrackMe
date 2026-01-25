@@ -1,0 +1,85 @@
+<div class="search">
+  <!-- search icon -->
+  <input type="text" name="searchKey" id="search" value="searchKey" />
+</div>
+
+<!-- user created meals -->
+<div class="my-meals">
+  <div class="header">
+    <div class="title">My Meals</div>
+    <div class="action">View all</div>
+  </div>
+  <div class="meals">
+    @for(item of customMealItem; track item.id){
+    <div class="item-card">
+      <div class="item">
+        <div>{{ item.name }}</div>
+        <div class="quantity">{{ item.quantity }}</div>
+      </div>
+      <div class="item-nutrition">
+        <div class="calorie">{{ item.calorie }}</div>
+        <div class="add-btn">+</div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<div class="search-suggestion">
+    <div class="title">Search Results</div>
+  <div class="suggestion">
+    @for(item of searchResult){
+        <div>
+            <div class="item-name">{{item.name}}</div>
+            <div class="action"> > </div>
+        </div>
+    }
+  </div>
+</div>
+
+<section class="food_detail_view">
+    <div class="food_name">{{selectedFood.name}}</div>
+    <div class="nutrition_top-banner">
+        <div class="nutrition-item">
+            <div>{{selectedFood.calories}} Cal</div>
+            <div class="sub-title">Calories</div>
+        </div>
+        <div class="nutrition-item">
+            <div>{{selectedFood.calories}} g</div>
+            <div class="sub-title">carbs</div>
+        </div>
+        <div class="nutrition-item">
+            <div>{{selectedFood.calories}} g</div>
+            <div class="sub-title">Protein</div>
+        </div>
+        <div class="nutrition-item">
+            <div>{{selectedFood.calories}} g</div>
+            <div class="sub-title">Fat</div>
+        </div>
+    </div>
+
+    <div class="measurement-details">
+        <select class="quantity" name="quantity" [value]="quantity">
+            <option value="0.5">0.5</option>
+            <option value="1">1.5</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5">5</option>
+            <option value="5.5">5.5</option>
+        </select>
+
+        <select name="measure" id="" [value]="measurement">
+            <option value="gram">gram</option>
+            <option value="serve">serve</option>
+            <option value="bowl">bowl</option>
+            <option value="small_bowl">small bowl</option>
+        </select>
+    </div>
+    <button class="food-add-btn">Add</button>
+</section>
+
