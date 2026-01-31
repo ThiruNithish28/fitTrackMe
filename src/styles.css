@@ -1,5 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
+body {
+        font-family: 'Lexend', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+    .glass {
+        background: rgba(18, 18, 18, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    html.light .glass {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .neon-text {
+        text-shadow: 0 0 10px rgba(48, 232, 122, 0.5);
+    }
+    .progress-ring-glow {
+        filter: drop-shadow(0 0 8px rgba(48, 232, 122, 0.6));
+    }
+
+    input[type="range"] {
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.1);
+            height: 6px;
+            border-radius: 3px;
+            padding: 0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #30e87a;
+            box-shadow: 0 0 10px rgba(48, 232, 122, 0.8);
+            cursor: pointer;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .image-header-mask {
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+
+/* 
 *{
     margin: 0;
     padding: 0;
@@ -16,4 +73,4 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.6rem;
-}
+} */

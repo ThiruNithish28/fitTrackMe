@@ -1,0 +1,34 @@
+
+<div class="relative flex items-center justify-center size-64">
+  <svg class="size-full -rotate-90 transform" viewBox="0 0 256 256">
+    <!-- Background Circle -->
+    <circle
+      cx="128"
+      cy="128"
+      [attr.r]="radius"
+      stroke-width="12"
+      fill="none"
+      class="stroke-white/5"
+    ></circle>
+    <!-- Progress Circle -->
+    <circle
+      cx="128"
+      cy="128"
+      [attr.r]="radius"
+      stroke-width="12"
+      fill="none"
+      stroke-linecap="round"
+      [style.strokeDasharray]="circumference"
+      [style.strokeDashoffset]="strokeDashoffset()"
+      class="stroke-primary progress-ring-glow transition-all duration-1000 ease-out"
+    ></circle>
+  </svg>
+  <div class="absolute flex flex-col items-center justify-center text-center">
+    <span class="text-4xl font-black text-white neon-text tracking-tighter">
+      {{ caloriesLeft() | number:'1.0-0' }}
+    </span>
+    <span class="text-xs font-medium text-primary/80 uppercase tracking-widest">
+      Cals Left
+    </span>
+  </div>
+</div>

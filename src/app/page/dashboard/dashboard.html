@@ -1,0 +1,69 @@
+<!-- Header -->
+    
+
+    
+    <!-- Calories Ring & Macros -->
+    <section class="flex flex-col items-center justify-center p-6 relative">
+      <app-calories-ring 
+        [caloriesLeft]="calories().left" 
+        [caloriesTotal]="calories().total">
+      </app-calories-ring>
+      <div class="mt-[-20px]">
+        <app-macros [macros]="macros()"></app-macros>
+      </div>
+    </section>
+
+    <!-- Stats Grid -->
+    <section class="grid grid-cols-2 gap-4 px-6 py-4">
+      <!-- Hydration Card -->
+      <div class="glass flex flex-col gap-3 rounded-2xl p-5 relative overflow-hidden group">
+        <div class="flex justify-between items-start">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1; font-size: 28px;">water_drop</span>
+          <span class="text-[10px] font-bold text-primary/60 bg-primary/10 px-2 py-0.5 rounded-full">{{ hydration().badge }}</span>
+        </div>
+        <div>
+          <p class="text-white/60 text-xs font-bold uppercase tracking-wider">Hydration</p>
+          <p class="text-white text-2xl font-black leading-tight">{{ hydration().value }}{{ hydration().unit }}</p>
+        </div>
+        <div class="absolute right-0 bottom-0 top-0 w-1.5 bg-white/5">
+          <div class="absolute bottom-0 w-full bg-primary shadow-neon" [style.height.%]="hydration().progress"></div>
+        </div>
+      </div>
+      
+      <!-- Burn Zone Card -->
+      <div class="glass flex flex-col gap-3 rounded-2xl p-5 border-l-2 border-primary/30">
+        <div class="flex justify-between items-start">
+          <span class="material-symbols-outlined text-primary" style="font-size: 28px;">local_fire_department</span>
+        </div>
+        <div>
+          <p class="text-white/60 text-xs font-bold uppercase tracking-wider">Burn Zone</p>
+          <p class="text-white text-2xl font-black leading-tight">{{ burnZone().value }} <span class="text-xs text-white/40 font-normal">{{ burnZone().unit }}</span></p>
+        </div>
+        <div class="flex gap-1 items-end h-8 mt-auto">
+          @for (bar of burnZone().barData; track $index) {
+            <div 
+              class="w-full rounded-sm" 
+              [class]="$last ? 'bg-primary shadow-neon' : 'bg-primary/40'"
+              [style.height.%]="bar">
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Iron Steps Card -->
+      <div class="glass col-span-2 flex items-center justify-between rounded-2xl p-5 border-t border-white/5">
+        <div class="flex items-center gap-4">
+          <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined" style="font-size: 32px;">steps</span>
+          </div>
+          <div>
+            <p class="text-white/60 text-xs font-bold uppercase tracking-wider">Iron Steps</p>
+            <p class="text-white text-3xl font-black tracking-tighter">{{ steps().count | number }}</p>
+          </div>
+        </div>
+        <div class="text-right">
+          <p class="text-primary text-sm font-bold neon-text">Goal: {{ (steps().goal / 1000) | number }}k</p>
+          <p class="text-white/30 text-[10px] font-medium">STREAK: {{ steps().streak }} DAYS</p>
+        </div>
+      </div>
+    </section>

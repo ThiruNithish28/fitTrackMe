@@ -1,0 +1,25 @@
+
+<div class="flex gap-4 z-10">
+  @for(macro of macros(); track macro.name) {
+    <div class="glass px-4 py-2 rounded-xl flex flex-col items-center min-w-[80px]">
+      <span class="text-[10px] text-white/50 dark:text-white/50 font-bold uppercase">{{ macro.name }}</span>
+      <span 
+        class="text-sm font-bold"
+        [class.text-primary]="macro.colorClass === 'primary'"
+        [class.text-white]="macro.colorClass !== 'primary'"
+        [class.dark:text-white]="macro.colorClass !== 'primary'"
+      >
+        {{ macro.value }}g
+      </span>
+      <div class="w-full h-1 bg-white/10 dark:bg-white/10 rounded-full mt-1 overflow-hidden">
+        <div 
+          class="h-full" 
+          [class.bg-primary]="macro.colorClass === 'primary'"
+          [class.bg-white/40]="macro.colorClass !== 'primary'"
+          [class.dark:bg-white/40]="macro.colorClass !== 'primary'"
+          [style.width.%]="getMacroProgress(macro)">
+        </div>
+      </div>
+    </div>
+  }
+</div>

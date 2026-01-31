@@ -1,0 +1,28 @@
+
+<div 
+  class="bg-gray-800/50 dark:bg-gray-900/50 backdrop-blur-sm p-4 rounded-2xl border border-white/10 dark:border-white/5 flex flex-col gap-4 relative"
+  [class]="'border-' + borderSide() + '-4 ' + borderColor()">
+  <div class="flex justify-between items-start">
+    <div class="flex items-center gap-2">
+      <div [innerHTML]="icon()" class="text-green-400 w-6 h-6"></div>
+      <span class="text-xs uppercase font-semibold text-gray-400 dark:text-gray-500">{{ title() }}</span>
+    </div>
+    @if(badgeText()) {
+      <span class="text-xs font-bold text-green-400 bg-green-900/50 dark:bg-green-500/20 px-2 py-1 rounded-full">{{ badgeText() }}</span>
+    }
+  </div>
+  <div>
+    <span class="text-4xl font-bold text-white dark:text-gray-200">{{ value() }}</span>
+    @if(unit()) {
+      <span class="text-lg text-gray-400 dark:text-gray-500 ml-1">{{ unit() }}</span>
+    }
+  </div>
+  @if(barData()) {
+    <div class="flex items-end justify-between h-10 mt-auto">
+        @for(bar of barData(); track $index) {
+          <div class="w-1/5 bg-green-900/50 dark:bg-green-500/20 rounded-t-sm" [style.height.%]="bar">
+          </div>
+        }
+    </div>
+  }
+</div>

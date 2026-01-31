@@ -1,0 +1,29 @@
+<div  class="sticky top-0 z-40 bg-background-dark/80 backdrop-blur-md px-6 pt-6  mb-6">
+    @if(router === "/dashboard"){
+      <header class="flex items-center justify-between">
+      <div class="flex size-12 shrink-0 items-center">
+        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary shadow-neon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAm4tJganOSNfItCdtAZDoLJF3fN76xgrD9Mp7TYwGM6AxkXq6tOqXVVfb3eD_W9_2xCvJvnuqz5NORAu1F8gslY640wYd_mEjsq55ua1X1gpb3fOe0isZImG0t8WB96yDHTheO5Ae_VZp_Ry_S-Q_ytG3WYFiNzV2PMP3Q0bmOEiJuyPMzU0x2StYcf134ACUScB0GQq5OtooQ2TymTogjDU9lb_FjXdBOmxtv1cSg0Swc7qrsxguXo8o1IW_HnaY4v4UFE4d7wG7B");'></div>
+      </div>
+      <div class="flex-1 px-4">
+        <p class="text-[10px] text-primary font-bold tracking-[0.2em] uppercase">Status: Active</p>
+        <h2 class="text-white text-lg font-extrabold leading-tight tracking-tight">WELCOME, WARRIOR</h2>
+      </div>
+      <div class="flex w-12 items-center justify-end">
+        <button class="flex size-10 cursor-pointer items-center justify-center rounded-full glass text-white hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+      </div>
+    </header>
+
+    }
+    @if(router === "/add-log"){
+      
+        <div class="flex items-center justify-between">
+            <button class="flex size-10 items-center justify-center rounded-full glass text-white">
+                <span class="material-symbols-outlined">arrow_back_ios_new</span>
+            </button>
+            <h1 class="text-xl font-black italic tracking-tighter text-white">ADD FUEL</h1>
+            <div class="w-10"></div>
+        </div>
+    }
+</div>

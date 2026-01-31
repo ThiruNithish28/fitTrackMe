@@ -1,0 +1,9 @@
+<button class="shrink-0 flex items-center justify-center rounded-xl bg-primary text-background-dark shadow-neon-intense hover:scale-105 active:scale-95 transition-transform"
+         [ngClass]="isLargebtn ? 'size-14 w-full' : 'size-10'"
+>
+    @if(icon){
+        <span class="material-symbols-outlined font-bold">{{icon}}</span>
+    }@else{
+        <span class="font-bold">{{text}}</span>
+    }
+</button>

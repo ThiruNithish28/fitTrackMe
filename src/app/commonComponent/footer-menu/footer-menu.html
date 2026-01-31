@@ -1,0 +1,27 @@
+<!-- Sticky Bottom Navigation -->
+<nav class="fixed bottom-0  w-full max-w-[430px] px-6 pb-6 pt-2 z-50">
+  <div class="glass rounded-full flex items-center justify-around p-3 shadow-2xl border border-white/10">
+    <a routerLink="/dashboard" routerLinkActive="text-primary" class="flex flex-col items-center gap-1 text-white/40 hover:text-primary transition-colors ">
+      <span class="material-symbols-outlined"
+        style="font-variation-settings: 'FILL' 1; font-size: 28px;">dashboard</span>
+    </a>
+    <a routerLink="/workout" routerLinkActive="text-primary"
+      class="flex flex-col items-center gap-1 text-white/40 hover:text-primary transition-colors">
+      <span class="material-symbols-outlined" style="font-size: 28px;">fitness_center</span>
+    </a>
+    <div class="relative -top-8">
+      <a routerLink="/add-log" 
+        class="size-14 rounded-full bg-primary text-background-dark flex items-center justify-center shadow-neon-intense border-4 border-background-dark dark:border-background-dark">
+        <span class="material-symbols-outlined font-black" style="font-size: 32px;">add</span>
+      </a>
+    </div>
+    <a routerLink="/food-log" routerLinkActive="text-primary"
+      class="flex flex-col items-center gap-1 text-white/40 hover:text-primary transition-colors">
+      <span class="material-symbols-outlined" style="font-size: 28px;">restaurant</span>
+    </a>
+    <a routerLink="/profile" routerLinkActive="text-primary"
+      class="flex flex-col items-center gap-1 text-white/40 hover:text-primary transition-colors">
+      <span class="material-symbols-outlined" style="font-size: 28px;">person</span>
+    </a>
+  </div>
+</nav>
