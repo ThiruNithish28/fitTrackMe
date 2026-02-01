@@ -1,9 +1,10 @@
 import { Component, ChangeDetectionStrategy, input, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RobotCoach } from "../robot-coach/robot-coach";
 
 @Component({
   selector: 'app-calories-ring',
-  imports: [CommonModule],
+  imports: [CommonModule, RobotCoach],
   templateUrl: './calories-ring.html',
   styleUrl: './calories-ring.css',
 })

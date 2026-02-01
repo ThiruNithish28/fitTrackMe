@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- rounded rounded rectangle body with neon stroke -->
+  <rect x="8" y="12" width="112" height="104" rx="18" ry="18" fill="#04120b" stroke="#1ef08a" stroke-width="4" filter="url(#glow)" />
+
+  <!-- eyes -->
+  <rect x="36" y="46" width="16" height="6" rx="2" ry="2" fill="#a7ffcc" transform="rotate(-6 44 49)" />
+  <rect x="76" y="46" width="16" height="6" rx="2" ry="2" fill="#a7ffcc" transform="rotate(6 84 49)" />
+
+  <!-- subtle inner shadow circle -->
+  <circle cx="64" cy="78" r="12" fill="#072018" opacity="0.6" />
+</svg>

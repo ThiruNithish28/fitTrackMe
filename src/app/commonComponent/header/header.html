@@ -19,7 +19,7 @@
     @if(router === "/add-log"){
       
         <div class="flex items-center justify-between">
-            <button class="flex size-10 items-center justify-center rounded-full glass text-white">
+            <button (click)="goBack()" class="flex size-10 items-center justify-center rounded-full glass text-white" aria-label="Go back" type="button">
                 <span class="material-symbols-outlined">arrow_back_ios_new</span>
             </button>
             <h1 class="text-xl font-black italic tracking-tighter text-white">ADD FUEL</h1>

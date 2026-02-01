@@ -22,7 +22,7 @@ interface FuelLogItem {
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
-calories = signal({ left: 1240, total: 2500 });
+calories = signal({ left: 2000, total: 2500 });
 
   macros = signal<Macro[]>([
     { name: 'Prot', value: 165, goal: 200, colorClass: 'primary' },

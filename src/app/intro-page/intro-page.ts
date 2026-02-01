@@ -48,8 +48,11 @@ export class IntroPage {
 
   constructor(private _calaculationService: CalculationEnginer) {
     this.userDetails = {
+      userName: '',
+      email: '',
       age: 20,
       weight: 0,
+      height: 0,
       gender: '',
       goal: '',
       targetProtein: 0,

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 
 import { AddFood } from './add-food';
 
@@ -8,7 +9,10 @@ describe('AddFood', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddFood]
+      imports: [AddFood],
+      providers: [
+        { provide: ActivatedRoute, useValue: { snapshot: { queryParamMap: convertToParamMap({ meal: 'Breakfast' }) } } }
+      ]
     })
     .compileComponents();
 
@@ -19,5 +23,9 @@ describe('AddFood', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('reads meal from query params', () => {
+    expect(component.preselectedMeal()).toBe('Breakfast');
   });
 });

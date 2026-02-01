@@ -1,0 +1,92 @@
+<div class="px-6 space-y-4">
+    <!-- user info -->
+     <!-- <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-64 bg-primary/5 blur-[100px] -z-10"></div> -->
+    <div class="flex flex-col items-center pt-3 pb-8">
+        <div class="relative group">
+            <div class="size-40 rounded-full glass-premium border-2 border-primary/30 flex items-center justify-center p-1 shadow-neon-intense relative">
+                <span class="material-symbols-outlined text-white/30" style="font-size: 82px;">person</span>
+                <div class="absolute bottom-2 right-2 size-5 bg-primary rounded-full border-4 border-background-dark shadow-neon"></div>
+            </div>
+        </div>
+        <div class="mt-6 text-center px-6">
+            <h1 class="text-3xl font-black text-white italic uppercase tracking-tight">Alex Sterling</h1>
+            <div class="mt-1 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-primary fill-1" style="font-size: 16px;">verified</span>
+                <span class="text-xs font-bold text-primary tracking-[0.3em] uppercase neon-text">Peak Performer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- physical details  -->
+    <div class="glass-premium rounded-4xl p-5">
+        <h3 class="text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">Physical Stats</h3>
+        <div class="grid grid-cols-3 gap-2">
+            <div class="flex flex-col gap-1">
+                <span class="text-[10px] font-bold text-white/30 uppercase">Height</span>
+                <p class="text-lg font-black italic">188<span class="text-[10px] ml-0.5 text-white/40">cm</span></p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <span class="text-[10px] font-bold text-white/30 uppercase">Weight</span>
+                <p class="text-lg font-black italic text-primary">84.2<span
+                        class="text-[10px] ml-0.5 text-white/40">kg</span></p>
+                <div class="w-8 h-1 bg-primary/20 rounded-full">
+                    <div class="w-full h-full bg-primary rounded-full"></div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-1">
+                <span class="text-[10px] font-bold text-white/30 uppercase">Body Fat</span>
+                <p class="text-lg font-black italic text-primary">11.4<span
+                        class="text-[10px] ml-0.5 text-white/40">%</span></p>
+                <div class="w-8 h-1 bg-primary/20 rounded-full">
+                    <div class="w-3/4 h-full bg-primary rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- personal records -->
+    <div class="glass-premium rounded-4xl p-5">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-[10px] font-black text-white/40 uppercase tracking-widest">Personal Records</h3>
+            <span class="material-symbols-outlined text-primary" style="font-size: 18px;">trophy</span>
+        </div>
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="size-10 rounded-xl bg-white/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white/60"
+                            style="font-size: 20px;">fitness_center</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-white/30 uppercase">Top Lift (Deadlift)</p>
+                        <p class="text-base font-black italic">210.0 <span class="text-[10px] text-white/40">kg</span>
+                        </p>
+                    </div>
+                </div>
+                <span
+                    class="text-[10px] font-black text-primary uppercase bg-primary/10 px-2 py-1 rounded-md">New</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="size-10 rounded-xl bg-white/5 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white/60"
+                            style="font-size: 20px;">directions_run</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold text-white/30 uppercase">Fastest 5K</p>
+                        <p class="text-base font-black italic">19:42 <span class="text-[10px] text-white/40">min</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- addtional options -->
+    <div class="pt-2 flex flex-col gap-4">
+        <app-menu-glass-card iconName="settings" menuTitle="Settings" (handleClick)="onSettingsClick()"></app-menu-glass-card>
+        <app-menu-glass-card iconName="notifications" menuTitle="Notifications" [messageDot]="true"></app-menu-glass-card>
+        <app-menu-glass-card iconName="person" menuTitle="Account"></app-menu-glass-card>
+    </div>
+
+</div>

@@ -1,0 +1,72 @@
+<div>
+    <!-- AI Coach Header Section -->
+    <header class="w-full flex justify-center items-center">
+      <!-- Robot moved to shared component -->
+      <app-robot-coach [mood]="coachMood()"></app-robot-coach>
+    </header>
+    
+    <div class="flex flex-col gap-4 mt-4 w-full px-2">
+        @for(meal of meals(); track meal.name) {
+            <div (click)="onMealClick(meal)" [class]="isOverLimit(meal) ? 'glass-warning' : 'glass-premium'" class="rounded-4xl p-6 relative overflow-hidden group active:scale-[0.98] transition-transform">
+                @if(expandedMeal() !== meal.name){
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-black text-white italic uppercase tracking-tight">{{ meal.name }}</h3>
+                            <div class="flex items-center gap-1.5 mt-1">
+                                <p [class]="isOverLimit(meal) ? 'text-warning-neon' : 'text-primary'" class="text-[11px] font-bold uppercase tracking-widest">
+                                    <span class="text-white">{{ meal.currentKcal }}</span> of {{ meal.limitKcal }} kcal
+                                </p>
+                                @if(isOverLimit(meal)) {
+                                <span class="material-symbols-outlined text-warning-neon text-[14px] font-bold">warning</span>
+                                }
+                            </div>
+                        </div>
+                        <button routerLink="/add-log" [queryParams]="{meal: meal.name}" (click)="$event.stopPropagation()" type="button" [class]="isOverLimit(meal) ? 'bg-warning-neon shadow-neon-warning' : 'bg-primary shadow-neon'" class="size-10 rounded-xl text-background-dark flex items-center justify-center hover:rotate-90 transition-transform">
+                            <span class="material-symbols-outlined font-black">add</span>
+                        </button>
+                    </div>
+                    <div class="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+                        <div [class]="isOverLimit(meal) ? 'bg-warning-neon shadow-neon-warning' : 'bg-primary shadow-neon'" [style.width.%]="getProgressBarWidth(meal)" class="h-full"></div>
+                    </div>
+                    @if(isOverLimit(meal)) {
+                        <div class="absolute top-2 right-16">
+                            <span class="text-[8px] px-2 py-0.5 bg-warning-neon/20 text-warning-neon rounded-full font-black uppercase tracking-widest border border-warning-neon/20">Over Limit</span>
+                        </div>
+                    }
+                } @else {
+                    <!-- EXPANDED VIEW -->
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-2xl font-black text-white italic uppercase tracking-tight">{{ meal.name }}</h3>
+                        <div class="text-right">
+                            <p class="text-[10px] text-white/50 font-bold tracking-widest uppercase">Tracking</p>
+                            <p [class]="isOverLimit(meal) ? 'text-warning-neon' : 'text-primary'" class="text-lg font-bold uppercase tracking-widest mt-0.5">
+                                <span class="text-white">{{ meal.currentKcal }}</span> of {{ meal.limitKcal }} kcal
+                            </p>
+                        </div>
+                    </div>
+                    <!-- progress bar -->
+                    <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-6">
+                        <div [class]="isOverLimit(meal) ? 'bg-warning-neon shadow-neon-warning' : 'bg-primary shadow-neon'" class="h-full" [style.width.%]="getProgressBarWidth(meal)"></div>
+                    </div>
+                    <!-- meal items -->
+                    <div class="flex flex-col gap-2">
+                        @for(item of meal.loggedItems; track item.name) {
+                            <div class="flex justify-between items-center bg-surface-dark rounded-full px-4 py-2 text-sm border border-white/5">
+                                <div class="flex flex-col">
+                                    <span class="text-white/80">{{ item.name }}</span>
+                                    <span class="text-white/50 text-xs mt-0.5">P {{ item.protein || 0 }}g • C {{ item.carbs || 0 }}g • F {{ item.fat || 0 }}g</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="font-bold" [class]="isOverLimit(meal) ? 'text-warning-amber' : 'text-primary'">{{ item.kcal }} kcal</span>
+                                </div>
+                            </div>
+                        }
+                        @if(meal.loggedItems.length === 0) {
+                            <p class="text-center text-sm text-white/30 py-4">No items logged for this meal.</p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

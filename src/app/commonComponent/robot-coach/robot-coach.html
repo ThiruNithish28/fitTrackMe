@@ -1,0 +1,40 @@
+<header class="w-full flex justify-center items-center">
+        @if(mood === 'angry') {
+            <!-- Angry Robot Coach -->
+            <div class="robot robot--angry relative flex items-center justify-center size-24 mascot-glow-warning mb-4" role="img" aria-label="Angry Robot Coach">
+                <div class="robot-face w-20 h-16 bg-zinc-900 rounded-4xl border-2 border-warning-neon/60 flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-linear-to-b from-warning-neon/10 to-transparent"></div>
+                    <div class="robot-angry-eyes flex gap-4 z-10 pt-1">
+                        <div class="robot-angry-eye w-4 h-1.5 bg-warning-neon rounded-full shadow-[0_0_10px_#ff4d4d] rotate-15 origin-right"></div>
+                        <div class="robot-angry-eye w-4 h-1.5 bg-warning-neon rounded-full shadow-[0_0_10px_#ff4d4d] -rotate-15 origin-left"></div>
+                    </div>
+                    <div class="robot-mouth w-4 h-1.5 border-t border-warning-neon/40 mt-3 rounded-[100%]"></div>
+                </div>
+                <div class="robot-antenna absolute -top-1 w-1 h-3 bg-warning-neon/60 rounded-full shadow-neon-warning"></div>
+            </div>
+        } 
+        @else {
+            <!-- Robot Coach Face (neutral, proud, motivating) -->
+            <div [class]="`robot w-16 h-16 rounded-2xl bg-background-dark border-2 border-primary/50 flex items-center justify-center neon-glow relative ${mood === 'proud' ? 'robot--proud' : mood === 'motivating' ? 'robot--motivating' : ''}`" role="img" aria-label="Robot Coach">
+                <div class="robot-eyes flex gap-2">
+                    <div class="robot-eye w-2 h-4 bg-primary rounded-full animate-pulse"></div>
+                    <div class="robot-eye w-2 h-4 bg-primary rounded-full animate-pulse"></div>
+                </div>
+                <!-- Robot Antenna -->
+                <div class="robot-antenna absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-3 bg-primary/40 rounded-full"></div>
+
+                @if(mood === 'proud') {
+                    <!-- Proud badge / chest puff -->
+                    <div class="robot-badge absolute bottom-0 -mb-2 w-6 h-2 bg-amber-400 rounded-full shadow-neon-proud"></div>
+                }
+
+                @if(mood === 'motivating') {
+                    <!-- Motivating sparkles -->
+                    <div class="robot-sparkles absolute -top-3 -right-2 flex flex-col items-end gap-1 pointer-events-none">
+                        <div class="sparkle w-1.5 h-1.5 bg-primary rounded-full"></div>
+                        <div class="sparkle w-1 h-1 bg-primary rounded-full"></div>
+                    </div>
+                }
+            </div>
+        }
+    </header>

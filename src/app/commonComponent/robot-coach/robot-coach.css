@@ -1,0 +1,112 @@
+/* Idle robot animations: bobbing, antenna sway, eye blink, and occasional twitch */
+.robot {
+  animation: robot-bob 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.robot-eyes { display: flex; gap: 0.5rem; align-items: center; }
+
+.robot-eye {
+  transform-origin: center;
+  animation: eye-blink 4s step-start infinite;
+}
+
+.robot-antenna { transform-origin: bottom center; animation: antenna-sway 3.5s ease-in-out infinite; }
+
+@keyframes robot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes antenna-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(6deg); }
+}
+
+@keyframes eye-blink {
+  0%, 7%, 100% { transform: scaleY(1); }
+  6%, 8% { transform: scaleY(0.08); }
+}
+
+/* Quick, occasional bigger movement to draw attention */
+.robot-twitch { animation: robot-twitch 0.65s ease both; }
+@keyframes robot-twitch {
+  0% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(-6px) rotate(-5deg); }
+  60% { transform: translateY(2px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* Angry robot: more agitated motion, faster bob, shake and pulsing warning glow */
+.robot.robot--angry { animation: robot-angry-bob 0.9s ease-in-out infinite; border-color: rgba(255,77,77,0.8); box-shadow: 0 0 12px rgba(255,77,77,0.18) inset; }
+.robot.robot--angry .robot-angry-eye { animation: angry-eye-flick 0.9s steps(2) infinite; }
+.robot.robot--angry .robot-antenna { animation: antenna-flicker 0.6s steps(2) infinite; }
+.robot.robot--angry .robot-face { box-shadow: 0 0 14px rgba(255,77,77,0.12); }
+
+@keyframes robot-angry-bob {
+  0% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-6px) rotate(-2deg); }
+  50% { transform: translateY(2px) rotate(2deg); }
+  75% { transform: translateY(-3px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+@keyframes angry-eye-flick {
+  0% { transform: scaleX(1) scaleY(1); opacity: 1; }
+  50% { transform: scaleX(1.2) scaleY(0.7); opacity: 0.9; }
+  100% { transform: scaleX(1) scaleY(1); opacity: 1; }
+}
+
+@keyframes antenna-flicker {
+  0% { transform: rotate(0deg); opacity: 1; }
+  25% { transform: rotate(18deg); opacity: 0.95; }
+  50% { transform: rotate(-12deg); opacity: 0.8; }
+  75% { transform: rotate(10deg); opacity: 0.95; }
+  100% { transform: rotate(0deg); opacity: 1; }
+}
+
+/* Stronger, angrier twitch */
+.robot-twitch-angry { animation: robot-twitch-angry 0.75s cubic-bezier(.2,.8,.3,1) both; }
+@keyframes robot-twitch-angry {
+  0% { transform: translateY(0) rotate(0); filter: drop-shadow(0 0 6px rgba(255,77,77,0.6)); }
+  20% { transform: translateY(-10px) rotate(-10deg); filter: drop-shadow(0 0 12px rgba(255,77,77,0.9)); }
+  50% { transform: translateY(4px) rotate(6deg); }
+  80% { transform: translateY(-2px) rotate(-4deg); }
+  100% { transform: translateY(0) rotate(0); filter: none; }
+}
+
+/* Proud robot: confident chest puff, warm amber glow, gentle nod */
+.robot.robot--proud { animation: robot-proud-puff 4.2s ease-in-out infinite; border-color: rgba(255,184,0,0.8); box-shadow: 0 0 12px rgba(255,184,0,0.12) inset; }
+.robot-badge { box-shadow: 0 4px 10px rgba(255,184,0,0.12); }
+@keyframes robot-proud-puff {
+  0%, 100% { transform: translateY(0) scale(1); }
+  45% { transform: translateY(-4px) scale(1.02); }
+  60% { transform: translateY(0) scale(1.01); }
+}
+.robot-twitch-proud { animation: robot-twitch-proud 0.6s ease both; }
+@keyframes robot-twitch-proud {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-8px) scale(1.03); }
+  70% { transform: translateY(2px) scale(1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Motivating robot: bouncy, energetic with sparkles */
+.robot.robot--motivating { animation: robot-motivate-bounce 1.4s cubic-bezier(.2,.9,.2,1) infinite; border-color: rgba(34,197,94,0.85); box-shadow: 0 0 16px rgba(34,197,94,0.08) inset; }
+@keyframes robot-motivate-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-8px) scale(1.02); }
+  60% { transform: translateY(-3px) scale(1.01); }
+}
+.robot-sparkles .sparkle { animation: sparkle-pulse 1.2s ease-in-out infinite; box-shadow: 0 0 6px rgba(34,197,94,0.12); }
+@keyframes sparkle-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.9; }
+}
+.robot-twitch-motivating { animation: robot-twitch-motivating 0.65s cubic-bezier(.2,.9,.2,1) both; }
+@keyframes robot-twitch-motivating {
+  0% { transform: translateY(0) rotate(0); }
+  30% { transform: translateY(-10px) rotate(-6deg); }
+  60% { transform: translateY(3px) rotate(4deg); }
+  100% { transform: translateY(0) rotate(0); }
+}

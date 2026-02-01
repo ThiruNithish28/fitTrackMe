@@ -1,0 +1,15 @@
+<div class="glass-premium rounded-2xl p-4 flex items-center justify-between group active:bg-white/5 transition-colors cursor-pointer">
+    <div class="flex items-center gap-4">
+        <div class="p-2 bg-primary/10 rounded-xl">
+            <span class="material-symbols-outlined text-primary" style="font-size: 20px;">{{iconName}}</span>
+        </div>
+        <span class="font-bold text-sm tracking-wide uppercase">{{menuTitle}}</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+        @if(messageDot){
+            <span class="size-2 bg-primary rounded-full shadow-neon"></span>
+        }
+        <span class="material-symbols-outlined text-white/20 group-hover:text-primary transition-colors" (click)="handleClickEvent()">chevron_right</span>
+    </div>
+</div>

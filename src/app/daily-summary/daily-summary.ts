@@ -23,19 +23,22 @@ export class DailySummary {
   eatenFat: number = 77;
 
  userDetails: UserDetails = {
-  age: 18,
-  weight: 0,
-  gender: 'male',
-  goal: '',
-  targetProtein: 40,
-  eatenProtein: 40,
-  targetCarbs: 70,
-  eatenCarbs: 40,
-  targetFat: 30,
-  eatenFat: 20,
-  targetCalories: 2000,
-  eatenCalories: 1230
-};
+   age: 18,
+   weight: 0,
+   gender: 'male',
+   goal: '',
+   targetProtein: 40,
+   eatenProtein: 40,
+   targetCarbs: 70,
+   eatenCarbs: 40,
+   targetFat: 30,
+   eatenFat: 20,
+   targetCalories: 2000,
+   eatenCalories: 1230,
+   userName: '',
+   email: '',
+   height: 0
+ };
 
 
   totalTicks = 24; // for 180 degree half-circle the 30 bar is good enough

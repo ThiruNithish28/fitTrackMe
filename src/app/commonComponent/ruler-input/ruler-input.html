@@ -1,0 +1,30 @@
+<div class="relative w-full h-24 flex items-center justify-center wheel-mask overflow-x-auto hide-scrollbar"
+     #rulerContainer
+     (mousedown)="onMouseDown($event)"
+     (touchstart)="onTouchStart($event)"
+     (touchmove)="onTouchMove($event)"
+     (touchend)="onTouchEnd()"
+     (scroll)="onScroll()">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="w-0.5 h-16 bg-primary shadow-neon-intense rounded-full z-10"></div>
+    </div>
+
+    <div class="flex items-end" [style.min-width.px]="ticks.length * 12 + 300">
+        <div class="shrink-0" [style.width.px]="150"></div> <!-- Spacer -->
+        @for (tick of ticks; track tick) {
+            <div class="flex flex-col items-center gap-2 shrink-0" style="width: 12px;">
+                @if ((tick % 10) === 0) {
+                    <div class="w-0.5 h-12 bg-white/60 rounded-full"></div>
+                    <span class="text-xs font-black" [class.text-primary]="isTickPrimary(tick)">
+                        {{ getTickLabelValue(tick) }}
+                    </span>
+                } @else if ((tick % 5) === 0) {
+                    <div class="w-0.5 h-8 bg-white/40 rounded-full"></div>
+                } @else {
+                    <div class="w-0.5 h-4 bg-white/20 rounded-full"></div>
+                }
+            </div>
+        }
+        <div class="shrink-0" [style.width.px]="150"></div> <!-- Spacer -->
+    </div>
+</div>

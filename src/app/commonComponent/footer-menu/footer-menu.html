@@ -9,13 +9,14 @@
       class="flex flex-col items-center gap-1 text-white/40 hover:text-primary transition-colors">
       <span class="material-symbols-outlined" style="font-size: 28px;">fitness_center</span>
     </a>
-    <div class="relative -top-8">
+    <div *ngIf="currentUrl !== '/add-log'" class="relative -top-8">
       <a routerLink="/add-log" 
-        class="size-14 rounded-full bg-primary text-background-dark flex items-center justify-center shadow-neon-intense border-4 border-background-dark dark:border-background-dark">
+            class="size-14 rounded-full bg-primary text-background-dark flex items-center justify-center shadow-neon-intense border-4 border-background-dark dark:border-background-dark">
         <span class="material-symbols-outlined font-black" style="font-size: 32px;">add</span>
       </a>
     </div>
-    <a routerLink="/food-log" routerLinkActive="text-primary"
+    
+    <a routerLink="/daily-log" routerLinkActive="text-primary"
       class="flex flex-col items-center gap-1 text-white/40 hover:text-primary transition-colors">
       <span class="material-symbols-outlined" style="font-size: 28px;">restaurant</span>
     </a>
