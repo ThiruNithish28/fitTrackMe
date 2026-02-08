@@ -1,4 +1,14 @@
-<header class="w-full flex justify-center items-center">
+<header class="w-full flex justify-center items-center flex-col">
+        <!-- Speech Bubble -->
+        @if(message) {
+            <div class="speech-bubble glass rounded-2xl px-4 py-3 mb-4 max-w-sm relative border border-white/5 animate-message-pop">
+                <!-- Message content -->
+                <p class="text-xs font-bold text-white/80 leading-relaxed">{{ message }}</p>
+            </div>
+
+            <!--  Message 2 --> 
+             <!-- <div class="glass-premium rounded-2xl p-4 flex items-start gap-3 border-white/5 bg-primary/5"> <span class="material-symbols-outlined text-primary text-sm flex-shrink-0 mt-0.5">info</span> <div> <p class="text-[10px] font-black text-white/70 uppercase tracking-widest mb-1">Coach Tip</p> <p class="text-xs font-bold text-white leading-relaxed">Click <span class="text-primary font-black">'Current'</span> to log your daily weight with robot coach assistance.</p> </div> </div> -->
+        }
         @if(mood === 'angry') {
             <!-- Angry Robot Coach -->
             <div class="robot robot--angry relative flex items-center justify-center size-24 mascot-glow-warning mb-4" role="img" aria-label="Angry Robot Coach">

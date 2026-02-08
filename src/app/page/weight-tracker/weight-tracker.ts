@@ -1,4 +1,4 @@
-import { Component, signal, ElementRef, viewChild, effect, computed } from '@angular/core';
+import { Component, signal, ElementRef, viewChild, effect, computed, Input } from '@angular/core';
 
 import Chart from 'chart.js/auto';
 import { RobotCoach } from "../../commonComponent/robot-coach/robot-coach";
@@ -21,12 +21,20 @@ interface WeightLog {
   styleUrl: './weight-tracker.css',
 })
 export class WeightTracker {
-
+  @Input() title = '';
   chartContainer = viewChild<ElementRef>('chart');
   private chart: any;
   
-  showGoalEntry = signal(false);
+  showWeightEntry = signal(false);
+  isSetGoalEntry = signal(false);
   updateNewGoalWeight = signal<number | null>(null);
+  coachMessage = signal<string>("Click 'Current' to log your weight! 🎯");
+  modalCoachMessage = computed(() => {
+    if (this.isSetGoalEntry()) {
+      return "Let's set your target weight! 💪";
+    }
+    return "Ready to log today's weight? Just adjust the ruler! 📏";
+  });
   integerPartOfWeight = computed(() => Math.floor(this.updateNewGoalWeight() ?? 0));
   decimalPartOfWeight = computed(() => {
     const value = this.updateNewGoalWeight() ?? 0;
@@ -101,13 +109,15 @@ export class WeightTracker {
   }
   
 
-  openGoalEntry() {
+  openWeightEntry(entryType: 'current' | 'goal') {
     this.updateNewGoalWeight.set(this.historyLogs()[0]?.weight || 84.2);
-    this.showGoalEntry.set(true);
+    this.isSetGoalEntry.set(entryType === 'goal');
+    this.showWeightEntry.set(true);
   }
 
-  closeGoalEntry() {
-    this.showGoalEntry.set(false);
+  closeWeightEntry() {
+     this.isSetGoalEntry.set(false);
+    this.showWeightEntry.set(false);
   }
 
   logWeight() {
@@ -126,7 +136,7 @@ export class WeightTracker {
 
 
     this.historyLogs.update(logs => [newLog, ...logs]);
-    this.closeGoalEntry();
+    this.closeWeightEntry();
   }
 
   addFirstLog(): void {

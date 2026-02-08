@@ -1,0 +1,102 @@
+<div class="px-6 space-y-6">
+        <app-robot-coach [message]="'Welcome to your settings, Alex! Customize your experience to optimize your fitness journey.'" [mood]="'motivating'"></app-robot-coach>
+        <div class="mt-3 pb-4 text-center">
+            <h1 class="text-xl font-black text-white italic uppercase tracking-tight">Settings</h1>
+            <p class="text-[10px] font-bold text-primary tracking-[0.2em] uppercase neon-text mt-0.5">Systems Optimal • Analyzing preferences</p>
+        </div>
+
+        <app-setting-section-card [sectionTitle]="'Training Preferences'" [sectionItems]="mainSettingOptions" ></app-setting-section-card>
+        <app-setting-section-card [sectionTitle]="'Nutrition Setup'" [sectionItems]="nutritionSettingOptions" ></app-setting-section-card>
+        <app-setting-section-card [sectionTitle]="'App Settings'" [sectionItems]="appSettingsOptions" ></app-setting-section-card>
+        
+        
+        <!-- 
+        <section class="space-y-3">
+            <h3 class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-2">Training Preferences</h3>
+            <div class="glass-premium rounded-3xl overflow-hidden">
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">target</span>
+                        <span class="text-sm font-semibold tracking-wide">Fitness Goals</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                </div>
+                <div class="h-[1px] w-full bg-white/5"></div>
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">bolt</span>
+                        <span class="text-sm font-semibold tracking-wide">Training Intensity</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                </div>
+                <div class="h-[1px] w-full bg-white/5"></div>
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">notifications_active</span>
+                        <span class="text-sm font-semibold tracking-wide">Workout Reminders</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-3">
+            <h3 class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-2">Nutrition Setup</h3>
+            <div class="glass-premium rounded-3xl overflow-hidden">
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">nutrition</span>
+                        <span class="text-sm font-semibold tracking-wide">Macro Targets</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                </div>
+                <div class="h-[1px] w-full bg-white/5"></div>
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">schedule</span>
+                        <span class="text-sm font-semibold tracking-wide">Meal Timing</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                </div>
+            </div>
+        </section>
+        <section class="space-y-3">
+            <h3 class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-2">App Settings</h3>
+            <div class="glass-premium rounded-3xl overflow-hidden">
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">dark_mode</span>
+                        <span class="text-sm font-semibold tracking-wide">Dark Mode</span>
+                    </div>
+                    <div class="relative inline-block w-10 h-5 align-middle select-none">
+                        <input [checked]="isDarkMode()" (change)="toggleDarkMode()" class="toggle-checkbox absolute block w-0 h-0 opacity-0" id="toggle-dark" name="toggle" type="checkbox" />
+                        <label class="toggle-label block overflow-hidden h-5 rounded-full bg-white/10 cursor-pointer transition-colors duration-200 border border-white/5" for="toggle-dark">
+                            <span class="toggle-dot block w-5 h-full rounded-full bg-white shadow-md transform transition-transform duration-200"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="h-[1px] w-full bg-white/5"></div>
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">straighten</span>
+                        <span class="text-sm font-semibold tracking-wide">Measurement Units</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-bold text-white/40 uppercase">Metric</span>
+                        <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                    </div>
+                </div>
+                <div class="h-[1px] w-full bg-white/5"></div>
+                <div class="flex items-center justify-between p-4 group active:bg-white/5 cursor-pointer">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-primary" style="font-size: 22px;">shield</span>
+                        <span class="text-sm font-semibold tracking-wide">Privacy & Data</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white/20 text-xl">chevron_right</span>
+                </div>
+            </div>
+        </section>
+         -->
+        <button class="w-full py-6 text-white/30 text-[10px] font-black uppercase tracking-[0.3em] hover:text-red-500 transition-colors">
+            End Session — Elite Athlete
+        </button>
+    </div>

@@ -11,6 +11,8 @@ export const routes: Routes = [
             {path:'daily-log', loadComponent: () => import('./page/daily-log/daily-log').then(m => m.DailyLog) },
             {path:'profile', loadComponent: () => import('./page/user-profile/user-profile').then(m => m.UserProfile) },
             {path:'weight', loadComponent: () => import('./page/weight-tracker/weight-tracker').then(m => m.WeightTracker) },
+            {path:'settings', loadComponent: () => import('./page/settings/settings').then(m => m.Settings) },
+            
             // {path:'profile', loadChildren: () => import('./page/dashboard/dashboard').then(m => m.Dashboard) },
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]

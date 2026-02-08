@@ -110,3 +110,66 @@
   60% { transform: translateY(3px) rotate(4deg); }
   100% { transform: translateY(0) rotate(0); }
 }
+
+/* Speech Bubble Animation */
+@keyframes message-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-message-pop {
+  animation: message-pop 0.4s ease-out forwards;
+}
+
+.speech-bubble {
+  position: relative;
+}
+
+/* Distinct message text styling to match app UI */
+.speech-bubble p {
+  margin: 0;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 800;
+  line-height: 1.15;
+  color: rgba(255,255,255,0.92);
+  /* subtle neon gradient text using background-clip */
+  /* background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(199,179,255,0.85) 60%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; */
+  background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(48,232,122,0.92) 60%); /* green accent */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(99, 72, 255, 0.06);
+  letter-spacing: 0.02em;
+}
+
+/* small accent bar below the message to emphasize callout */
+.speech-bubble::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 99px;
+  /* background: linear-gradient(90deg, rgba(199,179,255,0.9), rgba(139,92,246,0.9)); */
+   background: linear-gradient(90deg, rgba(48,232,122,0.95), rgba(16,185,129,0.9));
+  opacity: 0.9;
+  transform-origin: left center;
+  animation: accent-expand 900ms cubic-bezier(.2,.9,.2,1) both;
+}
+
+@keyframes accent-expand {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 0.95; }
+}
+
+/* Slight lift on hover for interactive feel (non-intrusive) */
+.speech-bubble:hover { transform: translateY(-2px); transition: transform 160ms ease; }

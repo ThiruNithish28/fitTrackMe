@@ -55,7 +55,7 @@ export class DailyLog {
     },
   ]);
   coachAngry = signal(false);
-  // coachMood: 'neutral' | 'angry' | 'proud' | 'motivating'
+ coachMessage = signal<string>("Let's get that breakfast under control!"); 
   coachMood = signal<'neutral'|'angry'|'proud'|'motivating'>('neutral');
   expandedMeal = signal<string | null>(null);
 
